@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asfar Motors | Used Cars & Trade-Ins</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      display: inline-block;
+      padding: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #555;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1502877338535-766e1452684a') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .search-bar {
+      text-align: center;
+      padding: 1rem;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .search-bar input {
+      padding: 0.5rem;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .inventory {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .car {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .car img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .car-info {
+      padding: 1rem;
+    }
+    .car-info h3 {
+      margin: 0;
+      color: #222;
+    }
+    .tradein {
+      background-color: #fff;
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .tradein form {
+      display: grid;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+    .tradein input, .tradein textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+    .tradein button {
+      background-color: #1a1a1a;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .tradein button:hover {
+      background-color: #333;
+    }
+    .contact {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    footer {
+      background-color: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script>
+    function searchCars() {
+      const input = document.getElementById('search').value.toLowerCase();
+      const cars = document.getElementsByClassName('car');
+      Array.from(cars).forEach(car => {
+        const title = car.querySelector('h3').innerText.toLowerCase();
+        car.style.display = title.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Asfar Motors</h1>
+    <p>Quality Used Cars & Trade-Ins in Edmonton</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#inventory">Inventory</a>
+    <a href="#tradein">Trade-In</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h1>Find Your Next Ride at Asfar Motors</h1>
+    <p>Affordable. Reliable. Trusted.</p>
+  </section>
+
+  <div class="search-bar">
+    <input type="text" id="search" onkeyup="searchCars()" placeholder="Search by model (e.g., Civic, Corolla, Escape)...">
+  </div>
+
+  <section class="inventory" id="inventory">
+    <div class="car">
+      <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d" alt="Car 1">
+      <div class="car-info">
+        <h3>2018 Honda Civic</h3>
+        <p>Automatic | 85,000 km | $17,900</p>
+      </div>
+    </div>
+    <div class="car">
+      <img src="https://images.unsplash.com/photo-1549921296-3c8e5f2b8a45" alt="Car 2">
+      <div class="car-info">
+        <h3>2016 Toyota Corolla</h3>
+        <p>Automatic | 102,000 km | $13,500</p>
+      </div>
+    </div>
+    <div class="car">
+      <img src="https://images.unsplash.com/photo-1605559424843-9e4b5b3b6b3f" alt="Car 3">
+      <div class="car-info">
+        <h3>2019 Ford Escape</h3>
+        <p>AWD | 72,000 km | $21,300</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tradein" id="tradein">
+    <h2 style="text-align:center;">Trade-In Your Vehicle</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Phone Number" required>
+      <input type="text" placeholder="Vehicle Make & Model" required>
+      <textarea placeholder="Additional Details" rows="4"></textarea>
+      <button type="submit">Submit Trade-In Request</button>
+    </form>
+  </section>
+
+  <section id="about" style="padding:2rem; background:white;">
+    <h2>About Us</h2>
+    <p>At Asfar Motors, we specialize in quality used cars and trade-ins. Our goal is to make car buying simple, transparent, and stress-free. Visit us in Edmonton to explore our full inventory.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 11420 142 St NW, Edmonton, AB</p>
+    <p>📞 (780) 555-1234</p>
+    <p>✉️ info@asfarmotors.ca</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Asfar Motors. All rights reserved.</p>
+  </footer>
+</body>
+</html>
